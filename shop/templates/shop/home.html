@@ -1,0 +1,80 @@
+{% extends "shop/base.html" %}
+
+{% comment %} {% block content %}
+
+    {% for post in posts.all %}
+        <div>
+            {% if post.thumnail %}
+            <img src="{{ post.thumnail.url }}" alt="img">
+            path :{{ post.thumnail.path }}
+            url : {{ post.thumnail.url }}
+            {% endif %}
+
+            <a href="{% url 'detail' post.id %}">{{post.title}}</a>
+        </div>
+    {% endfor %}
+{% endblock %} {% endcomment %}
+
+{% block content %}
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="">
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 mb-4" style="margin-bottom: 20px;">
+            <div class="card h-100">
+              <a href="{% url 'detail_1' %}"><img class="card-img-top" src="https://postfiles.pstatic.net/MjAxOTA3MzBfNjkg/MDAxNTY0NDc0NjI4NTUz.47UosKtPG0kueNnhCNC800xienid8-sZqqIjO_hoOLwg.iZ5AG9Uf4gMZdA6_xD2dgxfjj58wCkd5OYcGjUW8wMgg.JPEG.tkddms4199/KakaoTalk_20190730_170816971_02.jpg?type=w773" style="border: 6px solid lightgray; margin-top: 20px;" alt="" width="370" height="370"></a>
+              <div class="card-body">
+                <h3 class="card-title">
+                  <a href="{% url 'detail_1' %}">감자 왕 5kg/10kg/20kg</a>
+                </h3>
+                <h4>5,000원~16,000원</h4>
+                <p class="card-text">직접 키운 충주 햇감자</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4" style="margin-bottom: 20px;">
+            <div class="card h-100">
+              <a href="{% url 'detail_2' %}"><img class="card-img-top" src="https://postfiles.pstatic.net/MjAxOTA3MzBfMjM3/MDAxNTY0NDc0NjI4NTM4.ZxM573mQJUQRs1v1e5rlLQGcArbOHPgLTIjpJpTsZYIg.meF70Xl623uNsnPoi4VoEwyqj9DFx5ARShFGj3IBwF0g.JPEG.tkddms4199/KakaoTalk_20190730_170816971_04.jpg?type=w773" style="border: 6px solid lightgray; margin-top: 20px;" alt="" width="370" height="370"></a>
+              <div class="card-body">
+                <h3 class="card-title">
+                  <a href="{% url 'detail_2' %}">감자 특 5kg/10kg/20kg</a>
+                </h3>
+                <h4>4,000원~14,000원</h4>
+                <p class="card-text">직접 키운 충주 햇감자</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4" style="margin-bottom: 20px;">
+            <div class="card h-100">
+              <a href="{% url 'detail_3' %}"><img class="card-img-top" src="https://postfiles.pstatic.net/MjAxOTA3MzBfMTI0/MDAxNTY0NDc0NjI4NTUy.vf4Uhj7351uRGy72i9CKDO5vNkLZZwye0xZaAL-FO5Eg.OKn1B20_LyHCgYVdvsDegfCXi7s7HJR07AX9b-oDIh4g.JPEG.tkddms4199/KakaoTalk_20190730_170816971_01.jpg?type=w773" style="border: 6px solid lightgray; margin-top: 20px;" alt="" width="370" height="370"></a>
+              <div class="card-body">
+                <h3 class="card-title">
+                  <a href="{% url 'detail_3' %}">감자 대 5kg/10kg/20kg</a>
+                </h3>
+                <h4>2,500원~8,000원</h4>
+                <p class="card-text">직접 키운 충주 햇감자</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+{% endblock %}

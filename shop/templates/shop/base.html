@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link type="text/css" href="css/shop.css" rel="stylesheet">
+
+    <title>Potato Shop</title>
+</head>
+
+<body style="margin: 0 auto; width: 1250px;">
+    <div style="color: #ffffff; background-color: #9a7749;">
+        <br>
+
+        <center><img src="https://1.bp.blogspot.com/-8sOPJxaxrTM/Wz7zAzkvwpI/AAAAAAAjrOc/1IC8gb0bfbAnHmmSed-s_YNZxq7ASiOpwCLcBGAs/s1600/TW1320195.png" class="img-responsive img-circle margin" style="display: inline; margin: -15px;" alt="내사진" width="300" height="300"></center>
+
+        <div class="title text-center" style="font-size: 50px; margin: -20px;"><p>☀<strong> 명수네 감자농장 </strong>☀</p></div>
+        <br>
+        <div class="text-right">
+            {% if user.is_active %}
+            <div style="margin-right: 30px;">
+                <a href="{% url 'home' %}"><button type="button" class="btn btn-success">홈으로</button></a>
+                <a href="{% url 'mypage' %}"><button type="button" class="btn btn-success">{{ user.username }}</button></a>
+                <a href="{% url 'logout' %}"><button type="button" class="btn btn-success">로그아웃</button></a>
+            </div>
+            {% else %}
+            <div style="margin-right: 30px;">
+                <a href="{% url 'home' %}"><button type="button" class="btn btn-success">홈으로</button></a>
+                <a href="{% url 'accounts:signup' %}"><button type="button" class="btn btn-success">회원가입</button></a>
+                <a href="{% url 'login' %}"><button type="button" class="btn btn-success">로그인</button></a>
+            </div>
+            {% endif %}
+            {% comment %} <a href="{% url %}"></a> {% endcomment %}
+        </div>
+        <br>
+    </div>
+
+    <br>
+
+    {% block content %}
+    {% endblock %}
+
+    <br>
+
+    <footer class="option-1" style="color: #ffffff; background-color: #9a7749; margin-top: -20px;">
+        <div class="">
+        <br>
+        <p class="text-center">Copyright &copy; Your Website 2019</p>
+        <p class="text-center">H.P 010-9585-4199</p>
+        <br>
+        </div>
+    </footer>
+
+</body>
+</html>

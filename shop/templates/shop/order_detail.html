@@ -1,0 +1,10 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <div>
+        <h2>{{order.orderer}}</h2>
+        <p>{{order.address}}</p>
+        <a href="{% url 'order_edit' order.id %}">수정하기</a>
+        <a href="{% url 'order_delete' order.id %}">삭제하기</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <div style="align: center; color: black; background-color: #9a7749;">
+        <div style="align-text: left; margin-left: 370px; margin-top: -20px; margin-bottom: -5px;">
+            <form action="{% url 'order_save' %}" style="font-size: 17px;">
+                <p>* 주문상품 : 
+                    <select name="product" style="margin-left: 10px;">
+                        <option value="">상품을 선택하세요.</option>
+                        <option value="a-5">감자 왕 5kg : 5,000원 (배송비 : 3,000원)</option>
+                        <option value="a-10">감자 왕 10kg : 9,000원 (배송비 : 4,000원)</option>
+                        <option value="a-20">감자 왕 20kg : 16,000원 (배송비 : 5,000원)</option>
+                        <option value="b-5">감자 특 5kg : 4,000원 (배송비 : 3,000원)</option>
+                        <option value="b-10">감자 특 10kg : 7,500원 (배송비 : 4,000원)</option>
+                        <option value="b-20">감자 특 20kg : 14,000원 (배송비 : 5,000원)</option>
+                        <option value="c-5">감자 대 5kg : 2,500원 (배송비 : 3,000원)</option>
+                        <option value="c-10">감자 대 10kg : 4,500원 (배송비 : 4,000원)</option>
+                        <option value="c-20">감자 대 20kg : 8,000원 (배송비 : 5,000원)</option>
+                    </select></p><br>
+                <p>* 주문자명 : 
+                    <input type="text" name="orderer" style="margin-left: 10px;"></p><br>
+                <p>* 우편번호 : 
+                    <input type="number" name="postcode" style="margin-left: 10px;"></p><br>
+                <p>* 주소 : 
+                    <input type="text" name="address" style="margin-left: 45px;"></p><br>
+                <p>* 전화번호 : 
+                    <input type="tel" name="phone1" style="margin-left: 10px;"></p><br>
+                <p>  전화번호 : 
+                    <input type="tel" name="phone2" style="margin-left: 20px;"></p><br>
+                <p>  이메일 : 
+                    <input type="email" name="email" style="margin-left: 35px;"></p><br>
+                <p>  배송메세지 : 
+                    <textarea cols=40 rows=5 name="message"></textarea></p><br>
+                <center><p style="margin-left: -370px;">* 표시는 필수 입력 항목입니다.</p></center>
+                <center><input type = "submit" value="주문하기" class="btn btn-success text-center" style="margin-left: -370px; margin-top:10px; margin-bottom: 10px;"></input></center>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% comment %} {% extends "shop/base.html" %}
+
+{% block content %}
+    <div style="align: center; color: black; background-color: #9a7749;">
+        <div style="margin-left: 400px; margin-top: -20px; margin-bottom: -5px;">
+            <form method = "POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <center><input type = "submit" value="주문하기" class="btn btn-success text-center" style="margin-left: -400px; margin-top:10px; margin-bottom: 10px;"></input></center>
+            </form>
+        </div>
+    </div>
+{% endblock %} {% endcomment %}

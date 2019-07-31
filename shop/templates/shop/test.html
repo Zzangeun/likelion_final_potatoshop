@@ -1,0 +1,63 @@
+---html---
+<form action="{% url 'order_save' user_name %}">
+    <input type="" name="product">
+    <input type="text" name="orderer">
+    <input type="number" name="postcode">
+    <input type="text" name="address">
+    <input type="tel" name="phone1">
+    <input type="tel" name="phone2">
+    <input type="email" name="email">
+    <textarea cols=40 rows=10 name="message"></textarea>
+    <input type="submit" value="제출">
+</form>
+
+
+---urls---
+    path('order/complete/', views.order_save, name='order_save'),
+
+---views---
+def order_save(request, user_name):
+    order = Order()
+    order.writer = user_name
+    order.product = request.GET['product']
+    order.orderer = request.GET['orderer']
+    order.postcode = request.GET['postcode']
+    order.address = request.GET['address']
+    order.phone1 = request.GET['phone1']
+    order.phone2 = request.GET['phone2']
+    order.email = request.GET['email']
+    order.message = request.GET['message']
+    order.created_date = timezone.datetime.now()
+    order.price
+    order.delivery_price
+    order.total_price
+    order.save()
+
+        price_dic = {'a-3':3500}
+
+    return redirect('order_detail', order_id=order.pk)
+
+def order_new(request):
+    return render(request, 'shop/order_new.html')
+
+    blog = Blog()
+    blog.title = request.GET['title']
+    blog.body = request.GET['body']
+    blog.pub_date = timezone.datetime.now()
+    blog.save()
+    return redirect('/blog/'+str(blog.id))
+
+---models---
+    writer = models.CharField(max_length=200, blank=True)
+    product = models.CharField(max_length=200, blank=False)
+    orderer = models.CharField(max_length=200, blank=False)
+    postcode = models.CharField(max_length=100, blank=False)
+    address = models.CharField(max_length=800, blank=False)
+    phone1 = models.CharField(max_length=100, blank=False)
+    phone2 = models.CharField(max_length=100, blank=True)
+    email = models.EmailField(max_length=200, blank=True)
+    message = models.TextField(blank=True)
+    created_date = models.DateTimeField(blank=True, default=timezone.now)
+    price = models.IntegerField(blank=True)
+    delivery_price = models.IntegerField(blank=True, null=True)
+    total_price = models.IntegerField(blank=True)

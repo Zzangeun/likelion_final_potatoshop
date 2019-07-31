@@ -1,0 +1,15 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+
+    {% for order in orders.all %}
+        <div>
+            {% comment %} <h2>{{order.orderer}}</h2> {% endcomment %}
+            {% comment %} {% if user.is_active %} {% endcomment %}
+            <h3><a href="{% url 'order_detail' order.id %}">{{order.orderer}}</a></h3>
+            {% comment %} {% else %} {% endcomment %}
+            {% comment %} <h3 align="center"><a href="{% url 'accounts:signup' %}">{{review.summary}}</a></h3> {% endcomment %}
+            {% comment %} {% endif %} {% endcomment %}
+        </div>
+    {% endfor %}
+{% endblock %}
